@@ -11,6 +11,7 @@
 (5)@RequestMapping("/")<br>
 (6)页面跳转使用 ModelAndView<br>
 
-4.实现文件上传<br>
+4.实现文件上传下载：参考：https://blog.csdn.net/jronzhang/article/details/61210700<br>
 (1)相关jar包：commons-fileupload、commons-io、commons-codec<br>
 (2)Spring核心文件配置：bean  multipartResolver   maxUploadSize设置最大上传文件大小       defaultEncoding设置编码<br>
+(3)下载测试url：http://localhost:8080/iLink/file/down
