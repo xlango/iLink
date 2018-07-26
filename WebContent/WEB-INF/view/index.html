@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="uploadForm" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>文件描述:</td>
+				<td><input type="text" name="description"></td>
+			</tr>
+			<tr>
+				<td>请选择文件:</td>
+				<td><input type="file" name="file"></td>
+			</tr>
+			<tr>
+				<td><input id="upload" type="submit" value="上传"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+<script src="/iLink/js/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#upload").click(function() {
+			var formData = new FormData($('#uploadForm')[0]);
+			$.ajax({
+				type : 'post',
+				url : "/iLink/file/upload",
+				data : formData,
+				cache : false,
+				processData : false,
+				contentType : false,
+			}).success(function(data) {
+				alert(data);
+			}).error(function() {
+				alert("上传失败");
+			});
+		});
+	});
+</script>
+</html>
